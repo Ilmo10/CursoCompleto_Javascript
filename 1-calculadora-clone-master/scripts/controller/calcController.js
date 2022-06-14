@@ -4,6 +4,8 @@
 
      // this. é utilizado para chamar os atributos em qualquer lugar da class. 
 
+     ////teste teste
+
 class CalcController {
 
     constructor(){
