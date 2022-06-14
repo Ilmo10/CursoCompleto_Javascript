@@ -4,7 +4,7 @@
 
      // this. é utilizado para chamar os atributos em qualquer lugar da class. 
 
-     ////teste teste
+     ////acho que foi
 
 class CalcController {
 
