@@ -1,7 +1,7 @@
 class CalcController {
 
     constructor(){
-
+        // dentro do construtor ficam os atributos ( variaveis)
         this._locale = 'pt-br';
         this._displayCalcEl = document.querySelector("#display");
         this._dateEl = document.querySelector("#data");
@@ -12,7 +12,7 @@ class CalcController {
         this.initialize();
 
     }
-
+    // fora do constructor ficam os metodos ( funcões )
     initialize(){
 
         this.setDisplayDateTime();
@@ -25,11 +25,19 @@ class CalcController {
     }
 
     setDisplayDateTime(){
-        
+
         this.displayDate = this.currentDate.toLocaleDateString(this._locale );
         this.displayTime = this.currentDate.toLocaleTimeString(this._locale );
 
     }
+
+    initButtonsEvents(){
+
+        let buttons = document.querySelectorAll("#buttons > g, #parts > g")
+
+    }
+
+    // get transmitem informações e set recuperam informações
     set displayTime(value){
         return this._timeEl.innerHTML = value;
     }
