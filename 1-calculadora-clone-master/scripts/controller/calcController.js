@@ -6,7 +6,7 @@ class CalcController {
         this._displayCalcEl = document.querySelector("#display");
         this._dateEl = document.querySelector("#data");
         this._timeEl = document.querySelector("#hora");
-
+        this.initButtonsvents();
         
         this._currentDate;
         this.initialize();
@@ -30,11 +30,17 @@ class CalcController {
         this.displayTime = this.currentDate.toLocaleTimeString(this._locale );
 
     }
+E
+    initButtonsvents(){
 
-    initButtonsEvents(){
+        let buttons = document.querySelectorAll("#buttons > g, #parts > g");
 
-        let buttons = document.querySelectorAll("#buttons > g, #parts > g")
-
+        buttons.forEach((btn, index)=>{
+            
+            btn.addEventListener('click', e => {
+                console.log(btn.className.baseVal.replace('btn-',''));
+            });
+        })
     }
 
     // get transmitem informações e set recuperam informações
