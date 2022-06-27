@@ -68,32 +68,68 @@ class CalcController {
 
     }
 
+    pushOperation(value){
+
+        this._oparation.push(value)
+
+        if(this._oparation.length > 3){
+
+            
+
+            this.calc();
+
+            console.log(this._oparation)
+        }
+
+    }
+    calc(){
+        let last = this._oparation.pop();
+
+        let result = eval(this._oparation.join(""));
+
+        this._oparation = [result, last];
+    }
+
+    setLastNumberToDisplay(){
+
+        
+    }
+
     addOperation(value){
 
         if (isNaN(this.getLastOperation())) {
             //string
             if (this.isOperator(value)) {
                 
-                this._setLastOperation(value);
+                this.setLastOperation(value);
 
             } else if (isNaN(value)) {
                 console.log(value)
 
             }else{
-                this._oparation.push(value)
+                this.pushOperation(value)
             }
             
 
         } else {
             //number  (esta pegando o ultimo valor e tranformando em string para concatenar e não somar. ex: 10+2 = 102 e não 10+2= 12)
-            let newValue = this.getLastOperation().toString() + value.toString();
+            
+            if (this.isOperator(value)){
+
+                this.pushOperation(value)
+
+            } else{
+
+                let newValue = this.getLastOperation().toString() + value.toString();
 
             this.setLastOperation(parseInt(newValue));
-        }
+                // atualizar display name
 
+                this.setLastNumberToDisplay();
+
+            }
+        }
         
-        
-        console.log(this._oparation);
     }
     setError(){
         
